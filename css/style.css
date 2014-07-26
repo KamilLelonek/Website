@@ -361,14 +361,14 @@ nav {
 
 .cbp-af-header #logo {
 	padding:30px 30px 0px 0px; 
-	width:90px;}
+	width:350px;}
 
 .cbp-af-header #nav a {
 	line-height: 100px;}
 
 .cbp-af-header.cbp-af-header-shrink #logo { 
 	padding:20px 20px 0px 0px; 
-	width:60px;}
+	width:200px;}
 
 /* Transitions and class for reduced height */
 
