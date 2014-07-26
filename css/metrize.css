@@ -38,6 +38,14 @@ you can use the generic selector below, but it's slower:
   -webkit-font-smoothing: antialiased;
 }
 
+.icon-github-white:before {
+  content: "\e600";
+}
+
+.icon-github-black:before {
+  content: "\e601";
+}
+
 .icon-yen:before {
   content: "\e000";
 }
