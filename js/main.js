@@ -140,3 +140,12 @@ jQuery("#collapse-menu").on("click", function () {
     jQuery("#collapse").slideToggle(300);
     return false;
 });
+
+
+/*-----------------------------------------------------------------------------------*/
+/*	07. CUSTOM SCRIPTS
+ /*-----------------------------------------------------------------------------------*/
+
+jQuery('document').ready(function(){
+    jQuery('#current-year').text(new Date().getFullYear());
+});
