@@ -4,8 +4,6 @@ $(function () {
     /*-----------------------------------------------------------------------------------*/
     /*	01. PARALLAX SETTING
      /*-----------------------------------------------------------------------------------*/
-
-
     $(document).ready(function () {
         //.parallax(xPosition, speedFactor, outerHeight) options:
         //xPosition - Horizontal position of the element
@@ -16,9 +14,7 @@ $(function () {
 
     /*-----------------------------------------------------------------------------------*/
     /*	02. NAVBAR STICKY + SELECTED
-     /*-----------------------------------------------------------------------------------*/
-
-
+    /*-----------------------------------------------------------------------------------*/
     var cbpAnimatedHeader = (function () {
 
         var docElem = document.documentElement,
@@ -51,7 +47,6 @@ $(function () {
         }
 
         init();
-
     })();
     var sections = $("section");
     var navigation_links = $("nav a");
@@ -66,30 +61,22 @@ $(function () {
             var active_link = $('nav a[href="#' + active_section.attr("id") + '"]');
             navigation_links.removeClass("selected");
             active_link.addClass("selected");
-
         },
         offset: '30'
     })
-
 });
-
 
 /*-----------------------------------------------------------------------------------*/
 /*	03. SMOOTH SCROLLING
  /*-----------------------------------------------------------------------------------*/
-
-
-$('nav a, .buttongo a').click(function (e) {
+$('nav a:not(:last-child), .buttongo a').click(function (e) {
     $('html,body').scrollTo(this.hash, this.hash);
     e.preventDefault();
 });
 
-
 /*-----------------------------------------------------------------------------------*/
 /*	04. ISOTOPE PROJECTS & FILTERS
  /*-----------------------------------------------------------------------------------*/
-
-
 jQuery(document).ready(function ($) {
     var $container = $('#projects_grid .items');
 
@@ -127,15 +114,11 @@ $(function () {
 /*-----------------------------------------------------------------------------------*/
 /*	06. RESPONSIVE MENU
  /*-----------------------------------------------------------------------------------*/
-
 jQuery("#collapse").hide();
 jQuery("#collapse-menu").on("click", function () {
-
     jQuery("#collapse").slideToggle(300);
     return false;
-
 }, function () {
-
     jQuery("#collapse").slideToggle(300);
     return false;
 });
@@ -144,40 +127,41 @@ jQuery("#collapse-menu").on("click", function () {
 /*-----------------------------------------------------------------------------------*/
 /*	07. CUSTOM SCRIPTS
  /*-----------------------------------------------------------------------------------*/
-
 jQuery('document').ready(function () {
     jQuery('#current-year').text(new Date().getFullYear());
 
-    $(document).on('submit', '#contact-form', function(e) {
+    $(document).on('submit', '#contact-form', function (e) {
         e.preventDefault();
 
         $.post("https://mandrillapp.com/api/1.0/messages/send.json", {
             key: "u1BHVgtF9CLbiN5e9BEQxQ",
             message: {
                 from_email: $("input[name$='email']").val(),
-                to: [{email: "kamil@lelonek.me"}],
+                to: [
+                    {email: "kamil@lelonek.me"}
+                ],
                 subject: "[Website Portfolio] " + $("input[name$='subject']").val(),
                 text: "From: " + $("input[name$='name']").val() + ". Message: " + $("textarea[name$='comments']").val()
             }
         })
-        .done(function () {
-            toastr.options = {
-                "closeButton": false,
-                "debug": false,
-                "positionClass": "toast-top-right",
-                "onclick": null,
-                "showDuration": "300",
-                "hideDuration": "1000",
-                "timeOut": "5000",
-                "extendedTimeOut": "1000",
-                "showEasing": "swing",
-                "hideEasing": "linear",
-                "showMethod": "fadeIn",
-                "hideMethod": "fadeOut"
-            };
-            toastr.success("Thank you " + $("input[name$='subject']").val() + ". Your message has been sent.");
+            .done(function () {
+                toastr.options = {
+                    "closeButton": false,
+                    "debug": false,
+                    "positionClass": "toast-top-right",
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "5000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                };
+                toastr.success("Thank you " + $("input[name$='subject']").val() + ". Your message has been sent.");
 
-            $('#contact-form').trigger('reset');
-        });
+                $('#contact-form').trigger('reset');
+            });
     });
 });
