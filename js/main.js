@@ -1,6 +1,6 @@
 // Document ready
 $(function () {
-    
+
     /*-----------------------------------------------------------------------------------*/
     /*	01. PARALLAX SETTING
      /*-----------------------------------------------------------------------------------*/
@@ -145,6 +145,39 @@ jQuery("#collapse-menu").on("click", function () {
 /*	07. CUSTOM SCRIPTS
  /*-----------------------------------------------------------------------------------*/
 
-jQuery('document').ready(function(){
+jQuery('document').ready(function () {
     jQuery('#current-year').text(new Date().getFullYear());
+
+    $(document).on('submit', '#contact-form', function(e) {
+        e.preventDefault();
+
+        $.post("https://mandrillapp.com/api/1.0/messages/send.json", {
+            key: "u1BHVgtF9CLbiN5e9BEQxQ",
+            message: {
+                from_email: $("input[name$='email']").val(),
+                to: [{email: "kamil@lelonek.me"}],
+                subject: "[Website Portfolio] " + $("input[name$='subject']").val(),
+                text: "From: " + $("input[name$='name']").val() + ". Message: " + $("textarea[name$='comments']").val()
+            }
+        })
+        .done(function () {
+            toastr.options = {
+                "closeButton": false,
+                "debug": false,
+                "positionClass": "toast-top-right",
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            };
+            toastr.success("Thank you " + $("input[name$='subject']").val() + ". Your message has been sent.");
+
+            $('#contact-form').trigger('reset');
+        });
+    });
 });
