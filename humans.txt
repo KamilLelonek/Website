@@ -4,7 +4,7 @@ Site: http://kamil.lelonek.me/
 Location: Wrocław, Poland
 
 /* SITE */
-Last update: 2014/07/01
+Last update: 2014/08/31
 Standards: HTML5, CSS3, JavaScript
 Components: Modernizr, jQuery, Classie, Isotope, Waypoints, ScrollTo
 Software: JetBrains WebStorm
