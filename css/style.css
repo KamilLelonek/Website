@@ -1055,3 +1055,11 @@ and (-webkit-min-device-pixel-ratio: 1) {
 .hidden {
   display: none;
 }
+
+#social-icons a {
+  font-size: 32px;
+}
+
+#social-icons li {
+  margin: 10px;
+}
