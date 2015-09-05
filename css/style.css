@@ -831,7 +831,7 @@ form { overflow: hidden }
 /* Section */
 
 #interblock_footer {
-  padding:    100px 0;
+  padding:    20px 0;
   background: #F17C71;
   color:      #FFF; }
 
@@ -875,6 +875,12 @@ form { overflow: hidden }
 
 #interblock_footer .icon:hover {
   opacity: 0.7; }
+
+/* Medium iframe */
+
+#interblock_footer iframe {
+  margin: 0 auto;
+}
 
 /* 12. FOOTER CONTACT INFO SETTINGS ================================================== */
 
